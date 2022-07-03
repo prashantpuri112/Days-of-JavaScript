@@ -10,3 +10,4 @@ is either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark
 BMI (28.3) is higher than John's (23.9)!"
 
 Hint: Use an if/else statement*/
+const
