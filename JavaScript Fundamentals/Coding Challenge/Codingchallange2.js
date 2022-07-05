@@ -10,4 +10,17 @@ is either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark
 BMI (28.3) is higher than John's (23.9)!"
 
 Hint: Use an if/else statement*/
-const
+
+const markMass = 55;
+const markHeight = 2;
+const johnMass = 95;
+const johnHeight = 3;
+
+const BMIMark = markMass / (markHeight * markHeight);
+const BMIJohn = johnMass / (johnHeight * johnHeight);
+console.log(BMIMark, BMIJohn);
+if (BMIMark > BMIJohn) {
+    console.log(`Mark's BMI(${BMIMark}) is higher than John's (${BMIJohn})!`)
+} else {
+    console.log(`John's BMI(${BMIJohn}) is higher than Mark's (${BMIMark})!`)
+}
