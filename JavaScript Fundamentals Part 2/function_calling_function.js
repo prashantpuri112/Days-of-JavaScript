@@ -12,7 +12,6 @@ function fruitProcessor(mango, grapes) {
 }
 console.log(fruitProcessor(2, 3));
 
-
 /* Let's analyze how the data flows between functions
 so down here we are calling the fruitProcessor function with the argument two and three (In line 13)
 as we already know, this will then replace the mango parameter in the function with the number 2 and  grape with number 3
