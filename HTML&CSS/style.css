@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(143, 46, 65);
+    font-family: Arial;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.paragraph {
+    color: white;
+}
+
+#name {
+    background-color: yellow;
+    border: 5px solid rgb(218, 201, 201);
+}
