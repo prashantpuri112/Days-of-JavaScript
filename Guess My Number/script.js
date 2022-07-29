@@ -37,21 +37,29 @@ let score = 20;
 document.querySelector('.number').textContent = secretNumber;
 
 //AddEventListener is the best one and also the most used one
-document.querySelector('.check').addEventListener('click', function () {        //We have to pass a second argument with a function value
 
-    /* we do not call this function here anywhere, we only define the function here and then pass it into the event handler
-    but it is the JavaScript engine who will call this function as soon as the event happens.
-    The function will not be called immediately once the script is executed
-    This function will only be called as soon as the event happens*/
+/* we do not call this function here anywhere, we only define the function here and then pass it into the event handler
+   but it is the JavaScript engine who will call this function as soon as the event happens.
+   The function will not be called immediately once the script is executed
+   This function will only be called as soon as the event happens*/
+document.querySelector('.check').addEventListener('click', function () {        //We have to pass a second argument with a function value
 
     const guess = Number(document.querySelector('.guess').value);        //This function simply contains the code that we want to execute whenever the event happens
     console.log(guess, typeof guess);
 
+    //When there is no input
     if (!guess) {   //For falsy value 0
         console.log(document.querySelector('.message').textContent = 'No Number!');
+
+
+        // When Player Wins
     } else if (guess === secretNumber) {
         document.querySelector('.message').textContent = '🎉 Correct Number!';
 
+        document.querySelector('body').style.backgroundColor = '#60b347';  //Change in Background after win
+        document.querySelector('.number').style.width = '30rem'; //wight change after user win
+
+        //When uess is too high
     } else if (guess > secretNumber) {
         if (score > 1) {
             document.querySelector('.message').textContent = '📈 Too high!';
@@ -62,7 +70,7 @@ document.querySelector('.check').addEventListener('click', function () {        
             document.querySelector('.score').textContent = 0;
 
         }
-
+        //When uess is too low
     } else if (guess < secretNumber) {
         if (score > 1) {
             document.querySelector('.message').textContent = '📉 Too low!';
@@ -76,10 +84,3 @@ document.querySelector('.check').addEventListener('click', function () {        
 
     }
 });
-
-
-
-/* We need to implement waht happens when the guess is correct. So when it;s equal to the secret number
-We also needs to implement what happens when the guess is too low or high.
-So basically we have these three scenarios
-*/
