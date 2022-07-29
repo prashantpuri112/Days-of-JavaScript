@@ -31,20 +31,55 @@ With an event listner, we can wait for a certain event to happen and than react 
 */
 
 
+//Random number between 1-20
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let score = 20;
+document.querySelector('.number').textContent = secretNumber;
 
 //AddEventListener is the best one and also the most used one
 document.querySelector('.check').addEventListener('click', function () {        //We have to pass a second argument with a function value
+
+    /* we do not call this function here anywhere, we only define the function here and then pass it into the event handler
+    but it is the JavaScript engine who will call this function as soon as the event happens.
+    The function will not be called immediately once the script is executed
+    This function will only be called as soon as the event happens*/
+
     const guess = Number(document.querySelector('.guess').value);        //This function simply contains the code that we want to execute whenever the event happens
     console.log(guess, typeof guess);
 
     if (!guess) {   //For falsy value 0
         console.log(document.querySelector('.message').textContent = 'No Number!');
+    } else if (guess === secretNumber) {
+        document.querySelector('.message').textContent = '🎉 Correct Number!';
+
+    } else if (guess > secretNumber) {
+        if (score > 1) {
+            document.querySelector('.message').textContent = '📈 Too high!';
+            score--;
+            document.querySelector('.score').textContent = score;
+        } else {
+            document.querySelector('.message').textContent = '💥 You lost the game!';
+            document.querySelector('.score').textContent = 0;
+
+        }
+
+    } else if (guess < secretNumber) {
+        if (score > 1) {
+            document.querySelector('.message').textContent = '📉 Too low!';
+            score--;
+            document.querySelector('.score').textContent = score;
+        } else {
+            document.querySelector('.message').textContent = '💥 You lost the game!';
+            document.querySelector('.score').textContent = 0;
+
+        }
+
     }
 });
-/* we do not call this function here anywhere, we only define the function here and then pass it into the event handler
-but it is the JavaScript engine who will call this function as soon as the event happens.
-The function will not be called immediately once the script is executed
-This function will only be called as soon as the event happens*/
 
 
 
+/* We need to implement waht happens when the guess is correct. So when it;s equal to the secret number
+We also needs to implement what happens when the guess is too low or high.
+So basically we have these three scenarios
+*/
