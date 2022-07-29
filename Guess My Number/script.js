@@ -32,9 +32,8 @@ With an event listner, we can wait for a certain event to happen and than react 
 
 
 //Random number between 1-20
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-document.querySelector('.number').textContent = secretNumber;
 
 //AddEventListener is the best one and also the most used one
 
@@ -55,6 +54,7 @@ document.querySelector('.check').addEventListener('click', function () {        
         // When Player Wins
     } else if (guess === secretNumber) {
         document.querySelector('.message').textContent = '🎉 Correct Number!';
+        document.querySelector('.number').textContent = secretNumber;       //Visible after win
 
         document.querySelector('body').style.backgroundColor = '#60b347';  //Change in Background after win
         document.querySelector('.number').style.width = '30rem'; //wight change after user win
@@ -83,4 +83,19 @@ document.querySelector('.check').addEventListener('click', function () {        
         }
 
     }
+});
+
+document.querySelector('.again').addEventListener('click', function () {
+    score = 20;
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.guess').value = '';
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+
+
 });
