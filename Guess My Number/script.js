@@ -34,6 +34,7 @@ With an event listner, we can wait for a certain event to happen and than react 
 //Random number between 1-20
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highscore = 0;
 
 //AddEventListener is the best one and also the most used one
 
@@ -58,6 +59,12 @@ document.querySelector('.check').addEventListener('click', function () {        
 
         document.querySelector('body').style.backgroundColor = '#60b347';  //Change in Background after win
         document.querySelector('.number').style.width = '30rem'; //wight change after user win
+
+        if (score > highscore) {
+            highscore = score;
+            document.querySelector('.highscore').textContent = highscore;
+        }
+
 
         //When uess is too high
     } else if (guess > secretNumber) {
