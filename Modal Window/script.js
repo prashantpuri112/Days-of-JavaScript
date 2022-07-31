@@ -34,3 +34,15 @@ overlay.classList.remove('hidden');
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+//Handling the Key Press events
+
+document.addEventListener('keydown', function (e) {
+    // console.log('A key was pressed');
+    console.log(e.key);
+
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        // if (!modal.classList.contains('hidden')) { //Same as line 44 if condition
+        closeModal();
+    }
+});
