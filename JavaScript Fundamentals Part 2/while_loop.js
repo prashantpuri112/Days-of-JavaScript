@@ -23,7 +23,7 @@ Use case of wile loop: We do actually not know howmany times the loop should run
 let dice = Math.trunc(Math.random() * 6) + 1;
 console.log(dice);
 // We want to keep running the loop until it roll to 6
-while (dice !== 6) {
+while (dice !== 6) {    //If dice is 6 right away at the initial then the loop will have exactly zero iterations (It will never start)
     console.log(`You rolled a ${dice}`);  // Will create infinite loop till this code of line LOL
     dice = Math.trunc(Math.random() * 6) + 1;
     if (dice === 6) console.log('Loop is about to end...');
